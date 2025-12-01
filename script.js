@@ -41,3 +41,34 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('scroll', revealOnScroll);
   revealOnScroll();
 });
+
+// STATISTICS ANIMATION
+function animateStats() {
+  const stats = document.querySelectorAll('.stat-number');
+  stats.forEach(num => {
+    const update = () => {
+      const target = +num.getAttribute('data-target');
+      const current = +num.innerText;
+      const increment = Math.ceil(target / 50); // скорость
+      if (current < target) {
+        num.innerText = current + increment;
+        setTimeout(update, 30);
+      } else {
+        num.innerText = target;
+      }
+    };
+    update();
+  });
+}
+
+// Запускаем, когда секция stats видна
+function checkStatsVisible() {
+  const statsSection = document.getElementById('stats');
+  if (!statsSection) return;
+  const rect = statsSection.getBoundingClientRect();
+  if (rect.top < window.innerHeight - 50) {
+    animateStats();
+    window.removeEventListener('scroll', checkStatsVisible);
+  }
+}
+window.addEventListener('scroll', checkStatsVisible);
