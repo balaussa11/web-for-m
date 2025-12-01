@@ -84,7 +84,7 @@ input[type="text"], input[type="email"], textarea { padding:14px; border:1px sol
 @media(max-width:768px){ .hero-content{ flex-direction:column; text-align:center; } .hero-image, .hero-text{ flex:1 1 100%; } .hero-image img{ max-width:80%; margin:0 auto; } }
 
 /* BACKGROUND SECTIONS */
-#about, #resources{ position:relative; min-height:100vh; background:url('б.jpeg') center/cover no-repeat; background-attachment:fixed; }
+#about, #resources{ position:relative; min-height:100vh; background:url('images/б.jpeg') center/cover no-repeat; background-attachment:fixed; }
 #about::before, #resources::before{ content:''; position:absolute; inset:0; background-color:rgba(255,255,255,0.6); z-index:0; }
 #about>*, #resources>*{ position:relative; z-index:1; }
 
@@ -111,4 +111,28 @@ input[type="text"], input[type="email"], textarea { padding:14px; border:1px sol
   .contact-grid {
     grid-template-columns: 1fr;
   }
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.stat-card {
+  background: #e9f6ff;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(6,51,73,0.05);
+}
+
+.stat-card h3 {
+  font-size: 2.5rem;
+  color: #063349;
+  margin-bottom: 6px;
+}
+
+.stat-card p {
+  font-size: 1.1rem;
+  color: #134252;
 }
